@@ -102,6 +102,77 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+
+    switch (index) {
+      case 0:
+        let output = document.querySelector('output');
+        let firstNum = document.querySelector('#first-num').value;
+        let secondNum = document.querySelector('#second-num').value;
+        let operator = document.querySelector('#operator').value;
+        try {
+          if (firstNum === '' || secondNum === '') {
+            throw new Error('Enter valid numbers.');
+          }
+        }
+        catch (err) {
+            console.error(err);
+        }
+        finally {
+            console.log(eval(`${Number(firstNum)} ${operator} ${Number(secondNum)}`));
+        }       
+        break;
+      case 1:
+        console.error("ERROR!");
+        break;
+      case 2:
+        console.count('count');
+        break;
+      case 3:
+        console.warn("WARNING!");
+        break;
+      case 4:
+        console.assert(false, 'Assertion failed');
+        //if true not displayed
+        break;
+      case 5:
+        console.clear();
+        break;
+      case 6:
+        console.dir(errorBtns);
+        break;
+      case 7:
+        console.dirxml(errorBtns);
+        break;
+      case 8:
+        console.group('Group');
+        break;
+      case 9:
+        console.groupEnd();
+        console.info("Grouping ended")
+        break;
+      case 10:
+        console.table(errorBtns);
+        break;
+      case 11:
+        console.time();
+        console.info("timer started")
+        break;
+      case 12:
+        console.timeEnd();
+        break;
+      case 13:
+        console.trace();
+        break;
+      case 14:
+       throw new Error('Custom Error Occurred');
+        break;
+      default:
+        break;
+    }
+  });
+});
   </script>
 </body>
 
