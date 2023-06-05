@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "8933c9525744428e9bbad1a6015fbd94"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+TrackJS.track('Testing TrackJS!');
+</script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 9</title>
 
   <style>
     button {
@@ -102,78 +110,68 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
-    errorBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
 
-    switch (index) {
-      case 0:
-        let output = document.querySelector('output');
-        let firstNum = document.querySelector('#first-num').value;
-        let secondNum = document.querySelector('#second-num').value;
-        let operator = document.querySelector('#operator').value;
-        try {
-          if (firstNum === '' || secondNum === '') {
-            throw new Error('Enter valid numbers.');
-          }
+    errorBtns[0].addEventListener('click', () => {
+      let output = document.querySelector('output');
+      let firstNum = document.querySelector('#first-num').value;
+      let secondNum = document.querySelector('#second-num').value;
+      let operator = document.querySelector('#operator').value;
+      try {
+        if (firstNum === '' || secondNum === '') {
+          throw new Error('Enter valid numbers.');
         }
-        catch (err) {
-            console.error(err);
-        }
-        finally {
-            console.log(eval(`${Number(firstNum)} ${operator} ${Number(secondNum)}`));
-        }       
-        break;
-      case 1:
+      }
+      catch (err){
+          console.error(err);
+      }
+      finally {
+          console.log(eval(`${Number(firstNum)} ${operator} ${Number(secondNum)}`));
+      }       
+    });
+    errorBtns[1].addEventListener('click', () => {
         console.error("ERROR!");
-        break;
-      case 2:
+    });
+    errorBtns[2].addEventListener('click', () => {
         console.count('count');
-        break;
-      case 3:
+    });
+    errorBtns[3].addEventListener('click', () => {
         console.warn("WARNING!");
-        break;
-      case 4:
+    });
+    errorBtns[4].addEventListener('click', () => {
         console.assert(false, 'Assertion failed');
-        //if true not displayed
-        break;
-      case 5:
+    });
+    errorBtns[5].addEventListener('click', () => {
         console.clear();
-        break;
-      case 6:
-        console.dir(errorBtns);
-        break;
-      case 7:
-        console.dirxml(errorBtns);
-        break;
-      case 8:
+    });
+    errorBtns[6].addEventListener('click', () => {
+        console.dir(errorBtns[6]);
+    });
+    errorBtns[7].addEventListener('click', () => {
+        console.dirxml(errorBtns[7]);
+    });
+    errorBtns[8].addEventListener('click', () => {
         console.group('Group');
-        break;
-      case 9:
+    });
+    errorBtns[9].addEventListener('click', () => {
         console.groupEnd();
         console.info("Grouping ended")
-        break;
-      case 10:
+    });
+    errorBtns[10].addEventListener('click', () => {
         console.table(errorBtns);
-        break;
-      case 11:
+    });
+    errorBtns[11].addEventListener('click', () => {
         console.time();
         console.info("timer started")
-        break;
-      case 12:
+    });
+    errorBtns[12].addEventListener('click', () => {
         console.timeEnd();
-        break;
-      case 13:
+    });
+    errorBtns[13].addEventListener('click', () => {
         console.trace();
-        break;
-      case 14:
-       throw new Error('Custom Error Occurred');
-        break;
-      default:
-        break;
-    }
-  });
-});
-  </script>
+    });
+    errorBtns[14].addEventListener('click', () => {
+        throw new Error('Global Error Occurred');
+    });
+</script>
 </body>
-
 </html>
